@@ -9,6 +9,7 @@ import { ReactNode } from "react";
 import { useHideBalancesShortcut } from "@/hooks/useHideBalancesShortcut";
 import { ClaimShareProvider } from "@/context/ClaimShareContext";
 import { RouteDocumentTitle } from "@/app/hooks/useDocumentTitle";
+import { LangAttribute } from "@/app/i18n/LangAttribute";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -24,6 +25,8 @@ export function Providers({ children }: ProvidersProps) {
   return (
     <ErrorBoundary>
       <RouteDocumentTitle />
+      {/* Keeps <html lang> in sync with the user's language preference. */}
+      <LangAttribute />
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
